@@ -6,6 +6,9 @@ metadata:
     deployment: html-app
 spec:
   replicas: 1
+  selector: 
+    matchLabels:
+      deployment: html-app
   template:
     metadata:
       labels:
@@ -13,14 +16,13 @@ spec:
     spec:
       containers:
         - name: html-container
-          image: hav1s/html-gitops-img:v1.0.1
+          image: localhost:5000/hav1s/html-gitops-img:v1.0.1
+          imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 80
-          imagePullPolicy: Always
+            - containerPort: 80
+          # imagePullPolicy: Always
           volumeMounts:
             - name: html-volume
               mountPath: /usr/share/nginx/html
       volumes:
         - name: html-volume
-          configMap:
-            name: html-configmap
