@@ -34,7 +34,7 @@ spec:
         deployment: html-app
     spec:
       containers:
-      - image: hav1s/html-gitops-img:v1.0.1
+      - image: localhost:5000/hav1s/html-gitops-img:v1.0.1
         imagePullPolicy: IfNotPresent
         #always -- IfNotPresent
         name: html-container
