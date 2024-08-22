@@ -35,7 +35,8 @@ spec:
     spec:
       containers:
       - image: hav1s/html-gitops-img:v1.0.1
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        #always -- IfNotPresent
         name: html-container
         ports:
         - containerPort: 80
