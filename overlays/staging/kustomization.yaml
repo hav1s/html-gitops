@@ -3,6 +3,6 @@ commonLabels:
   variant: staging
 resources:
 - ../../base
-patches:
+patchesStrategicMerge:
 - configMap.yaml
 
