@@ -36,7 +36,7 @@ spec:
         deployment: html-app
     spec:
       containers:
-      - image: image: http://192.168.67.2:5000/hav1s/html.gitops-img
+      - image: http://192.168.67.2:5000/hav1s/html.gitops-img
         imagePullPolicy: IfNotPresent
         name: html-container
         ports:
