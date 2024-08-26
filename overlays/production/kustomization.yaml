@@ -1,8 +1,7 @@
 namePrefix: production-
-labels:
+commonLabels:
   variant: production
 resources:
 - ../../base
-
 patches:
-  - deployment.yaml
+- deployment.yaml

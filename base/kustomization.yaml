@@ -3,6 +3,6 @@ kind: Kustomization
 
 namespace: h4v15
 resources:
-  - namespace.yaml
-  - deployment.yaml
-  - service.yaml
+- namespace.yaml
+- deployment.yaml
+- service.yaml
