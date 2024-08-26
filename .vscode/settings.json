@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/helmfile.json": "file:///c%3A/Users/ozenh/OneDrive/Masa%C3%BCst%C3%BC/html-gitops/html-gitops/overlays/staging/kustomization.yaml"
+    }
+}
