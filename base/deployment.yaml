@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: html-container
-          image: localhost:5000/hav1s/html-gitops-img:v1.0.1
+          image: http://192.168.67.2:5000/hav1s/html.gitops-img
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
