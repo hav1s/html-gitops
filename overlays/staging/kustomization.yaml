@@ -1,8 +1,7 @@
 namePrefix: staging-
-commonLabels:
+labels:
   variant: staging
 resources:
 - ../../base
-patchesStrategicMerge:
-- configMap.yaml
-
+patches:
+- path: configMap.yaml
