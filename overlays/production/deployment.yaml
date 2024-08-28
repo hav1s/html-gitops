@@ -5,5 +5,4 @@ metadata:
   labels:
     app: html-app
 spec:
-project: html-devops-proj
 replicas: 3
