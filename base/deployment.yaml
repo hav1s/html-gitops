@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: html-container
-          image: hav1s/htmlimg
+          image: my-html-app
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

@@ -24,7 +24,7 @@ steps:
     stage: deploy
     working_directory: ${{clone}}
     arguments:
-      image: hav1s/html-gitops-img:v1.0.1 #change image name
+      image: my-html-app #change image name
       commands:
         - kubectl config use-context docker-desktop
         - kubectl apply -k overlays/production
