@@ -5,7 +5,6 @@ metadata:
   labels:
     deployment: html-app
 spec:
-  project: default
   replicas: 1
   selector: 
     matchLabels:
