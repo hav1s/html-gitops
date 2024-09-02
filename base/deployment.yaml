@@ -5,7 +5,7 @@ metadata:
   labels:
     deployment: html-app
 spec:
-  project: html-devops-proj
+  project: default
   replicas: 1
   selector: 
     matchLabels:
