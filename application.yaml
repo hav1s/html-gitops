@@ -6,7 +6,7 @@ metadata:
 spec:
   project: html-devops-proj
   source:
-    repoURL: https://github.com/hav1s/html-gitops.git
+    repoURL: ./
     targetRevision: main
     path: overlays/production
   destination:

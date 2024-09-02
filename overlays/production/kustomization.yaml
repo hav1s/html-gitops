@@ -1,9 +1,12 @@
 namePrefix: production-
-commonLabels:
-  variant: production
 resources:
 - ../../base
-patchesStrategicMerge:
-- deployment.yaml
-- configMap.yaml
-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+- includeSelectors: true
+  pairs:
+    variant: production
+patches:
+- path: deployment.yaml
+- path: configMap.yaml

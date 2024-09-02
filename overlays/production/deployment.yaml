@@ -5,5 +5,4 @@ metadata:
   labels:
     environment: production
 spec:
-project: default
-replicas: 3
+  replicas: 1
