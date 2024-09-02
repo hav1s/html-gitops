@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: html-deployment
   labels:
-    app: html-app
+    environment: production
 spec:
 project: default
 replicas: 3
