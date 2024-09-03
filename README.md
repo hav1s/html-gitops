@@ -79,7 +79,7 @@ As you can see in the application structure some of the files aren’t inside of
 
 •	application.yaml: The application YAML which was added after an error specifies the details of the app we want to create on argocd.
 
-•	prod-codefresh.yml:
+•	prod-codefresh.yml: This is a CI/CD pipeline that clones the GitHub repository and deploys the application with the commands in the last two lines using Kustomize and Kubernetes.
 
 •	staging-codefresh.yml: This file is basically the same as the ‘prod-codefresh.yml’ file the only difference is that this uses the ’kubectl apply -k’ command in the ‘overlays/staging’ folder.
 
