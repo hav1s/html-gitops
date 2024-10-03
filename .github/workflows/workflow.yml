@@ -1,24 +1,33 @@
-name: Test Workflow Dispatch
+name: CI/CD Pipeline
 
 on:
-    workflow_dispatch:
-        inputs:
-            environment:
-                description: "The Environmenr To Deploy To"
-                required: true
-                default: "prod"
-                type: choice
-                options:
-                    - prod
-                    - staging
-                    - dev
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "The Environment To Deploy To"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+          - prod
+          - staging
+          - dev
 
-        
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "Deploy to ${{github.event.inputs.environment}} environment"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Deploy to Production
+        if: ${{ github.event.inputs.environment == 'prod' }}
+        run: echo "Deploying to Production..."
 
+      - name: Deploy to Staging
+        if: ${{ github.event.inputs.environment == 'staging' }}
+        run: echo "Deploying to Staging..."
 
+      - name: Deploy to Development
+        if: ${{ github.event.inputs.environment == 'dev' }}
+        run: echo "Deploying to Development..."
