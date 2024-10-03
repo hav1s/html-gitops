@@ -51,7 +51,7 @@ jobs:
         steps:
         - name: Staging Deploy
           if: ${{ github.event.inputs.environment == 'staging' }} 
-          run: echo Staging Deployed
+          run: echo Staging Deployedd
     
     dev-deploy:
         runs-on: ubuntu-latest
