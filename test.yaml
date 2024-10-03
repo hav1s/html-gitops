@@ -1,0 +1,118 @@
+metadata:
+  creationTimestamp: "2024-09-02T11:09:08Z"
+  generation: 2
+  managedFields:
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:destination:
+          .: {}
+          f:namespace: {}
+          f:server: {}
+        f:project: {}
+        f:source:
+          .: {}
+          f:path: {}
+          f:repoURL: {}
+          f:targetRevision: {}
+        f:syncPolicy:
+          .: {}
+          f:syncOptions: {}
+      f:status:
+        .: {}
+        f:health: {}
+        f:summary: {}
+        f:sync:
+          .: {}
+          f:comparedTo:
+            .: {}
+            f:destination: {}
+            f:source: {}
+    manager: argocd-server
+    operation: Update
+    time: "2024-09-02T11:09:08Z"
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:controllerNamespace: {}
+        f:health:
+          f:status: {}
+        f:reconciledAt: {}
+        f:resources: {}
+        f:sourceType: {}
+        f:sync:
+          f:comparedTo:
+            f:destination:
+              f:namespace: {}
+              f:server: {}
+            f:source:
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+          f:revision: {}
+          f:status: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2024-09-02T11:09:10Z"
+  name: html-app
+  namespace: argocd
+  resourceVersion: "207634"
+  uid: 5e7f3c53-e0f7-464f-8a2b-26777eb5f455
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: overlays/production
+    repoURL: https://github.com/hav1s/html-gitops.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+status:
+  controllerNamespace: argocd
+  health:
+    status: Missing
+  reconciledAt: "2024-09-02T11:09:08Z"
+  resources:
+  - kind: ConfigMap
+    name: production-html-configmap
+    namespace: h4v15
+    status: OutOfSync
+    version: v1
+  - kind: Namespace
+    name: h4v15
+    status: OutOfSync
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: production-html-service
+    namespace: h4v15
+    status: OutOfSync
+    version: v1
+  - group: apps
+    health:
+      status: Missing
+    kind: Deployment
+    name: production-html-deployment
+    namespace: h4v15
+    status: OutOfSync
+    version: v1
+  sourceType: Kustomize
+  summary: {}
+  sync:
+    comparedTo:
+      destination:
+        namespace: default
+        server: https://kubernetes.default.svc
+      source:
+        path: overlays/production
+        repoURL: https://github.com/hav1s/html-gitops.git
+        targetRevision: main
+    revision: d2d628d4feb5b3ca5e9ef456bef89b0485e96b57
+    status: OutOfSync

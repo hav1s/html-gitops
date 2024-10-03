@@ -1,0 +1,14 @@
+keys:
+  dept_a: &main_key_group
+    age:
+      - age15d34hhap2dwe5qgecrwzh76g3z2rj3klw5una8k52xqca8nkafsqnv2ak9
+
+creation_rules:
+- path_regex: ^Secrets/.*secret\.(en|de)crypted\.yaml$
+  encrypted_regex: "^(data|stringData)$"
+  key_groups:
+  - *main_key_group
+# - path_regex: '.*'
+#   key_groups:
+#   - *main_key_group
+#^Secrets/.*secret\.(en|de)crypted\.yaml$
