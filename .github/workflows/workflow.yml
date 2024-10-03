@@ -2,12 +2,23 @@ name: Test Workflow Dispatch
 
 on:
     workflow_dispatch:
+        inputs:
+            environment:
+                description: "The Environmenr To Deploy To"
+                required: true
+                default: "prod"
+                type: choice
+                options:
+                    - prod
+                    - staging
+                    - dev
+
         
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Workflow Dispatch"
+            - run: echo "Deploy to ${{github.event.inputs.environment}} environment"
 
 
 
