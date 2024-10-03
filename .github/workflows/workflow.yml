@@ -1,6 +1,10 @@
 name: Test Workflow Dispatch
 
 on:
+    push:
+        branches:
+            - main
+
     workflow_dispatch:
         inputs:
             environment:
@@ -14,13 +18,54 @@ on:
                     - dev
 
 jobs:
-    unit-test:
+    unit-tests:
         runs-on: ubuntu-latest
+        steps:
+        - name: Run Hello Workflow
+          run: echo Hello Workflow
+    
+    build:
+        runs-on: ubuntu-latest
+        needs: unit-tests
         steps:
         - name: Checkout Code
           uses: actions/checkout@v4
-        - name: Run Hello Workflow
-          run: echo Hello Workflow
+    
+    prod-deploy:
+        if: startsWith(github.event.head_commit.message, 'feat:') || startsWith(github.event.head_commit.message, 'fix:')
+        runs-on: ubuntu-latest
+        needs: [unit-tests, build]
+        permissions:
+            id-token: write
+            contents: read
+        steps:
+        - name: Prod Deploy
+          if: ${{ github.event.inputs.environment == 'prod' }} 
+          run: echo Prod Deployed
+
+    staging-deploy:
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: read
+        steps:
+        - name: Staging Deploy
+          if: ${{ github.event.inputs.environment == 'staging' }} 
+          run: echo Staging Deployed
+    
+    dev-deploy:
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: read
+        steps:
+        - name: Dev Deply
+          if: ${{ github.event.inputs.environment == 'dev' }} 
+          run: echo Dev Deployed
+
+    
+
+
 
 
 
